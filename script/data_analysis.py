@@ -1,7 +1,7 @@
 import pandas as pd
 
 def total_produksi(data, target):
-    """Menghitung total produksi tiap provinsi"""
+    """Menghitung total produksi tiap provinsi/kabupaten"""
     hasil_panen = data.groupby(f"{target}")["produksi_kg"].sum().reset_index()
     return hasil_panen
 

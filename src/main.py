@@ -1,4 +1,5 @@
 import pandas as pd
+import sqlite3
 
 from script.data_loader import raw_data, show_data, cleaning_data, merge_data, sort_data
 from script.data_analysis import total_produksi, filter_tahun, filter_kg
