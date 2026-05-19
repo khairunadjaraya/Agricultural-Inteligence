@@ -32,3 +32,7 @@ def filter_kg(data, operator, target):
         return None
 
     return hasil
+
+def sort_data (data, target):
+    hasil = data.sort_values(by = target, ascending = False)
+    return hasil
