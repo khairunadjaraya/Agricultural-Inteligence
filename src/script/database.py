@@ -36,12 +36,19 @@ def query_by_provinsi (provinsi):
     return df
 
 def query_by_column(column, value):
+    allowed_columns = ["provinsi", "tahun"]
+
+    if column not in allowed_columns:
+        raise ValueError("Kolom tidak valid")
+
     conn = connect_db()
-    cursor = conn.cursor()
-    query = f"""SELECT * FROM produksi_padi
-    WHERE {column} = '{value}'"""
-    df = pd.read_sql(query, conn)
-    conn.close()
+
+    try:
+        query = f"SELECT * FROM produksi_padi WHERE {column} = ?"
+        df = pd.read_sql(query, conn, params=(value,))
+    finally:
+        conn.close()
+
     return df
 
 def add_data_to_db(provinsi, tahun, produksi_ton, curah_hujan_mm):
@@ -124,4 +131,3 @@ def sum_produksi_by_provinsi():
     conn.close()
     return df
 
-print(sum_produksi_by_provinsi())
