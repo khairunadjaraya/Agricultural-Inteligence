@@ -1,4 +1,3 @@
-import pandas as pd
 from script.data_loader import read_data
 from script.data_cleaning import cleaning_data, merge_data
 
