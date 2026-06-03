@@ -1,3 +1,9 @@
 pandas
 openpyxl
 apscheduler
+requests
+python-dotenv
+streamlit
+plotly
+fastapi
+uvicorn
