@@ -21,7 +21,7 @@ Project ini merupakan bagian dari roadmap pembangunan sistem AI pertanian terint
 ## Struktur Folder
 
 ```text
-AI-PERTANIAN-PANDAS/
+Agricultural-Inteligence/
 │
 ├── data/
 │   ├── raw/                 # Dataset mentah
