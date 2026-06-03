@@ -1,7 +1,7 @@
 from services.cleaning_service import clean_data
 from script.database import save_to_db
 from script.data_analysis import total_produksi
-from script.data_exporter import simpan_laporan
+from script.data_exporter import simpan_laporan, simpan_laporan_excel
 from script.anomaly_detection import detect_anomaly_zscore
 
 
@@ -25,5 +25,6 @@ def run_pipeline(
 
     simpan_laporan(summary, report_name)
     simpan_laporan(anomaly, anomaly_report_name)
+    simpan_laporan_excel(data, summary, anomaly, f"laporan_pipeline")
 
     return summary, anomaly
