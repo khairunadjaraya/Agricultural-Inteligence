@@ -7,17 +7,20 @@ def connect_db():
     return conn
 
 # Membuat tabel produksi_padi
-def save_to_db(df, name_file):
+def save_to_db(df, table_name, mode="replace"):
     conn = connect_db()
-    cursor = conn.cursor()
-    df.to_sql(
-        name_file,
-        conn,
-        if_exists="replace",
-        index=False
-    )
-    conn.close()
-    print(f"Data berhasil disimpan ke tabel {name_file}!")
+
+    try:
+        df.to_sql(
+            table_name,
+            conn,
+            if_exists=mode,
+            index=False
+        )
+        print(f"Data berhasil disimpan ke tabel {table_name}!")
+    finally:
+        conn.close()
+
 
 def read_from_db(name_file):
     conn = connect_db()
